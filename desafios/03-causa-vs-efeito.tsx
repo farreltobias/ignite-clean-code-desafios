@@ -1,9 +1,9 @@
 // Causa vs Efeito
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 interface User {
-  name: string;
-  github: string;
+  name: string
+  github: string
 }
 
 function fetchUser() {
@@ -11,31 +11,31 @@ function fetchUser() {
     data: {
       user: {
         name: 'Joseph Oliveira',
-        github: 'https://github.com/josepholiveira'
-      }
-    }
+        github: 'https://github.com/josepholiveira',
+      },
+    },
   }
 }
 
 export function UserProfile() {
-  const [shouldNotRenderUserName, setShouldNotRenderUserName] = useState(false)
+  const [userHasNotFetched, setUserHasNotFetched] = useState(false)
   const [userData, setUserData] = useState<User>()
 
   useEffect(() => {
     function loadUser() {
-      setShouldNotRenderUserName(true)
+      setUserHasNotFetched(true)
 
       const fetchUserResponse = fetchUser()
 
       setUserData(fetchUserResponse.data.user)
-      
-      setShouldNotRenderUserName(false)
+
+      setUserHasNotFetched(false)
     }
 
     loadUser()
   })
 
-  if (shouldNotRenderUserName) {
+  if (userHasNotFetched) {
     return <p>Loading...</p>
   }
 
@@ -46,5 +46,3 @@ export function UserProfile() {
     </div>
   )
 }
-
-

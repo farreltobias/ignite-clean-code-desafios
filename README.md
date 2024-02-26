@@ -10,7 +10,8 @@
 
 ## 💻 Projeto
 
-ignite-clean-code-desafios
+Neste projeto, tive o desafio de colocar em prática os conhecimentos adquiridos no curso Clean Code, onde aprendi como escrever um código limpo, escalável e de fácil manutenção.
+
 
 ## 📝 Licença
 
